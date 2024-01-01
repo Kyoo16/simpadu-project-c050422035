@@ -13,13 +13,23 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('subject_id')->unsigned();
-            $table->dateTime('schedule_date');
-            $table->string('schedule_type');
+            $table->bigInteger('subject_id')->unsigned()->default(100); // Dimulai dari 100
+            // $table->bigInteger('student_id')->unsigned();
+            $table->string('hari');
+            $table->string('jam_mulai');
+            $table->string('jam_selesai');
+            $table->string('ruangan');
+            $table->string('kode_absensi')->unique()->randomNumber(7); // Nomor acak 7 angka
+            $table->string('tahun_akademik');
+            $table->string('semester');
+            $table->string('created_by');
+            $table->string('updated_by');
+            $table->string('deleted_by')->nullable(); // Nullable for soft deletes
+            // $table->dateTime('schedule_date');
+            // $table->string('schedule_type');
             $table->timestamps();
         });
-    }
+ }
 
     /**
      * Reverse the migrations.

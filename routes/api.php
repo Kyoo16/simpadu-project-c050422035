@@ -23,4 +23,4 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('schedules', ScheduleController::class)
-    ->middleware('auth:sanctum');
+-> middleware('auth.sanctum');
