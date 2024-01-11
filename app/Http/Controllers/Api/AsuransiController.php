@@ -11,9 +11,11 @@ class AsuransiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+    public function show($id)
     {
-        return AsuransiResource::collection(Asuransi:all());
+        $asuransi = Asuransi::find($id);
+        return response()->json($asuransi);
     }
 
     /**
@@ -27,10 +29,6 @@ class AsuransiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
